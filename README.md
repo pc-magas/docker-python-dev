@@ -78,3 +78,11 @@ Then via the following command you can launch it:
 ```
 docker-compose run python_dev
 ```
+
+## Further notices:
+
+Do not be alarmed by the follwing errors during container launch:
+
+> bash: cannot set terminal process group (-1): Inappropriate ioctl for device
+> bash: no job control in this shell
+> bash: cd: too many arguments
