@@ -4,8 +4,9 @@ ENV DOCKER_UID=1000
 ENV DOCKER_GID=1000
 ENV VENV_FOLDER=env
 ENV DEPENDENCIES_FILE=""
-ENV DEV_HOME="/home/developer"
-ENV DEV_SRC_PATH="${DEV_HOME}/code"
+
+ARG DEV_HOME="/home/developer"
+ARG DEV_SRC_PATH="${DEV_HOME}/code"
 
 RUN mkdir -p ${DEV_SRC_PATH} &&\
     pip install virtualenv &&\
