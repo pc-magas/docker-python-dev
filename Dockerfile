@@ -9,9 +9,10 @@ ENV DEV_HOME="/home/developer"
 ENV DEV_SRC_PATH="${DEV_HOME}/code"
 
 RUN mkdir -p ${DEV_SRC_PATH} &&\
-    pip install virtualenv &&\
     groupadd -g ${DOCKER_GID} developer &&\
-    useradd -d ${DEV_HOME} -u ${DOCKER_UID} -g ${DOCKER_GID} -s /bin/bash developer
+    useradd -d ${DEV_HOME} -u ${DOCKER_UID} -g ${DOCKER_GID} -s /bin/bash developer &&\
+    chown -R developer:developer ${DEV_HOME} &&\
+    pip install virtualenv
 
 COPY .bashrc_new ${DEV_HOME}/.bashrc
 RUN chown developer:developer ${DEV_HOME}/.bashrc &&\

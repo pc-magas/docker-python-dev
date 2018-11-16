@@ -11,7 +11,4 @@ if [ ${DOCKER_GID} != ${GROUP_ID} ]; then
   groupmod -g ${DOCKER_GID} developer
 fi
 
-chown -R developer:developer ${DEV_HOME}/.cache/pip/http
-
-
 su developer -c "bash"
