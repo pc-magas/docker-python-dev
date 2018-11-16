@@ -12,6 +12,10 @@ cd ${DEV_SRC_PATH};
 
 if [ ! -z "${DEPENDENCIES_FILE}" ] && [ -f ${DEV_SRC_PATH}/${DEPENDENCIES_FILE} ]; then
   pip install --user -r ${DEV_SRC_PATH}/${DEPENDENCIES_FILE}
+  # Fallback installation
+  if [ ! $? -eq 0 ]; then
+    pip install -r ${DEV_SRC_PATH}/${DEPENDENCIES_FILE}
+  fi
 else
   echo "No Dependencies will be installed"
 fi
