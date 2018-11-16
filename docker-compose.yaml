@@ -6,6 +6,6 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
-    image: pc-magas/python_dev:3
+    image: pcmagas/python_dev:3
     stdin_open: true
     tty: true

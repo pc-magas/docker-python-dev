@@ -11,12 +11,7 @@ if [ ${DOCKER_GID} != ${GROUP_ID} ]; then
   groupmod -g ${DOCKER_GID} developer
 fi
 
-script="if [ -f /home/developer/code/${VENV_FOLDER}/bin/activate ]; then source /home/developer/code/${VENV_FOLDER}/bin/activate; fi; cd /home/developer/code/
-pip install -r /home/developer/code/${DEPENDENCIES_FILE}"
-
-if [ ! -f /home/developer/.bashrc ]; then
-  echo $script >> /home/developer/.bashrc
-fi
+chown -R developer:developer ${DEV_HOME}/.cache/pip/http
 
 
 su developer -c "bash"

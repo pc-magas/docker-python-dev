@@ -33,7 +33,7 @@ services:
     volumes:
       - $PROJECT_PATH:/home/developer/code
     environment:
-      - DEPENDENCIES_FILE:$DEPENDENCIES_FILE
+      - DEPENDENCIES_FILE=$DEPENDENCIES_FILE
 ```
 
 Then create this `.env` file:
@@ -58,7 +58,7 @@ services:
     volumes:
       - $PROJECT_PATH:/home/developer/code
     environment:
-      - DEPENDENCIES_FILE:$DEPENDENCIES_FILE
+      - DEPENDENCIES_FILE=$DEPENDENCIES_FILE
       - DOCKER_UID=$UID
       - DOCKER_GID=$GID
 ```

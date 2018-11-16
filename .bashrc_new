@@ -1,0 +1,18 @@
+#!/bin/bash
+
+echo "DEBUG Source Path: ${DEV_SRC_PATH}"
+echo "DEBUG Virtual Env: ${VENV_FOLDER}"
+echo "DEBUG DEPENDENCIES FILE: ${DEPENDENCIES_FILE}"
+
+if [ -f ${DEV_SRC_PATH}/${VENV_FOLDER}/bin/activate ]; then
+ source ${DEV_SRC_PATH}/${VENV_FOLDER}/bin/activate;
+fi
+
+cd ${DEV_SRC_PATH};
+
+if [ ! -z "${DEPENDENCIES_FILE}" ] && [ -f ${DEV_SRC_PATH}/${DEPENDENCIES_FILE} ]; then
+  mkdir -p ${DEV_HOME}/.local
+  pip install --user -r ${DEV_SRC_PATH}/${DEPENDENCIES_FILE}
+else
+  echo "No Dependencies will be installed"
+fi
